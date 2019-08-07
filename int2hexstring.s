@@ -39,7 +39,7 @@ L1:   andi $t0, $a0, 0xf    # Le hace un & con 1111. Es decir, agarra los primer
       addi $t2, $t2, -1     # Decrementamos contador
       beqz $t2, E1          # Cuando pasaron 32 bits (4 * 8) cortamos
       j L1
-E1:   addi $sp, $sp, 8
-      lw  $a1, 0($sp)       # Carga los argumentos del stack
+E1:   lw  $a1, 0($sp)       # Carga los argumentos del stack
       lw  $a0, 4($sp)
+      addi $sp, $sp, 8
       jr $ra
