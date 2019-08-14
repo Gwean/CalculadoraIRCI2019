@@ -10,7 +10,7 @@ dbl: .space 8
 # $a0 -> Numero a convertir.
 # $a1 -> String respuesta res.
 # $a2 -> Cantidad de digitos hexadecimales de la respuesta.
-i2hs: addi $sp, $sp, -12	# Para documentacion completa ver 
+w2h: addi $sp, $sp, -12	# Para documentacion completa ver 
 				# int2hexstring.s
       sw  $a2, 0($sp)
       sw  $a1, 4($sp)

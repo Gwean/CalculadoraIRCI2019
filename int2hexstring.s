@@ -14,7 +14,7 @@ main: li $v0, 4             #
       move $a0, $v0         # Guarda el numero en $a0
       
       la $a1, msg3          # Carga direccion del string respuesta en $a1
-      jal i2hs              # Llamada a la funcion
+      jal w2h              # Llamada a la funcion
       
       li $v0, 4             #
       la $a0, msg2          #
@@ -24,7 +24,7 @@ main: li $v0, 4             #
       syscall               # Exit
 
 # $a1 string respuesta
-i2hs: addi $sp, $sp, -8     # Se reserva memoria del stack
+w2h:  addi $sp, $sp, -8     # Se reserva memoria del stack
       sw  $a1, 0($sp)       # Guarda msg3* en el stack
       sw  $a0, 4($sp)       # Guarda el numero ingresado
       la   $t1, hexa        # Guarda 0123456789ABCDEF* en $t1
