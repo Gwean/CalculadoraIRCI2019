@@ -12,10 +12,13 @@ la $a0, dbl		# En $a0 tengo la direccion del double
 s.d $f0, ($a0)		# Cuidado, se almacena la primera mitad despues
 			# de la segunda
 
+li $v0, 10
+syscall
 
 # $a0 -> direccion del double
 # $a1 -> donde quiero el signo
-sgn:	addi $sp, $sp, -8
+sgn:
+	addi $sp, $sp, -8
 	sw   $a0, 4($sp)
 	sw   $a1, 0($sp)	# Apilo en el stack
 	addi $a0, $a0, 4	# Avanzo a la primer mitad del double
