@@ -4,6 +4,7 @@ double: .space 8  # double number;
 buffer: .space 8   # void* buffer; 
 chars: .ascii "0123456789ABCDEF"  # const char* chars = "0123456789ABCDEF";
 
+doublemsg: .asciiz "Numero: "
 hexamsg: .asciiz "Hexa: "
 signomsg: .asciiz "Signo: "
 exponentemsg: .asciiz "Exponente: "
@@ -146,9 +147,17 @@ mantisa:                #
 main:			          #
 				            #
 li $v0, 7		        #
-syscall			        #
-				            #
-s.d $f0, double($0)	# cin >> number;
+syscall			        # cin >> number;
+s.d $f0, double($0)	# 
+li $v0, 4           #
+la $a0, doublemsg   #
+syscall             # cout << "Numero: ";
+li $v0, 3           #
+mov.d $f12, $f0     #
+syscall             # cout << number;
+li $v0, 4           #
+la $a0, endl        #
+syscall             # cout << endl;
 				            #
 jal hexa            # hexa(&number);
 jal signo           # signo(&number);
